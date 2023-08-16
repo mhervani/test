@@ -37,26 +37,6 @@ def adapt_optimization_oar(ss, plan, oar_list, region_code):
     adaptive_optimization(plan, objective_adaptations)
 
 
-# NOT IN USE YET (UNDER DEVELOPMENT).
-def objective_adaptations(plan):
-  objective_adaptations = []
-  #o.FunctionValue < 1*10**-10
-  for o in plan.PlanOptimizations[0].Objective.ConstituentFunctions:
-    if o.FunctionValue.FunctionValue < 1*10**-10 and o.ForRegionOfInterest.Type == 'Organ':
-      objective_adaptations.append(OA.ObjectiveAdaptation(o.ForRegionOfInterest.Name, o))
-
-  for oa in objective_adaptations:
-    if oa.roi == ROIS.spinal_canal.name:
-      v = oa.objective.OfDoseDistributions[0].GetDoseAtRelativeVolumes(RoiName = oa.roi, RelativeVolumes = [0.02])
-      oa.set_dose_high(v[0])
-      oa.objective.DoseFunctionParameters.DoseLevel = 0.5 * v[0]
-    else:
-      avg = oa.objective.OfDoseDistributions[0].GetDoseStatistic(RoiName = oa.roi, DoseType = 'Average')
-      oa.set_dose_high(avg)
-      oa.objective.DoseFunctionParameters.DoseLevel = 0.5 * avg
-
-  return objective_adaptations
-
 
 # Runs optimization iterations until satisfactory optimization function values have been reached.
 def adaptive_optimization(plan, objective_adaptations):
@@ -90,36 +70,6 @@ def adaptive_optimization(plan, objective_adaptations):
             oa.set_dose_low(oa.objective.DoseFunctionParameters.DoseLevel)
             # After new low limit has been set, the target function value should be between low and high limit:
             oa.objective.DoseFunctionParameters.DoseLevel = 0.5 * (oa.dose_low + oa.dose_high)
-
-
-# NOT IN USE YET (UNDER DEVELOPMENT).
-def adaptive_optimization_with_calculation(plan, beam_set, objective_adaptations):
-  # Run optimization iterations until satisfactory optimization function values have been reached:
-  completed = False
-  while (completed == False):
-    # Run a new optimization with the updated average dose criterias:
-    plan.PlanOptimizations[0].RunOptimization()
-    beam_set.ComputeDose(DoseAlgorithm = 'CCDose')
-    # Assume the goals are reached until proven otherwise:
-    completed = True
-    # Check each objective:
-    for oa in objective_adaptations:
-      # Continue adapting if target has not been reached, and the achieved dose is above 1 cGy:
-      if oa.on_target() == False and oa.objective.DoseFunctionParameters.DoseLevel > 1:
-        completed = False
-        # Function value is either too high or too low:
-        if oa.objective.FunctionValue.FunctionValue < oa.function_value_low:
-          # Function value is too low: It is possible to reduce dose further:
-          oa.nr_dose_reductions += 1
-          oa.set_dose_high(0.5 * (oa.dose_low + oa.dose_high))
-          # After new high limit has been set, the target function value should be between low and high limit:
-          oa.objective.DoseFunctionParameters.DoseLevel = 0.5 * (oa.dose_low + oa.dose_high)
-        elif oa.objective.FunctionValue.FunctionValue > oa.function_value_high:
-          # Function value is too high: We were too aggressive, dose limit must be increased:
-          oa.nr_dose_reductions = 0
-          oa.set_dose_low(oa.objective.DoseFunctionParameters.DoseLevel)
-          # After new low limit has been set, the target function value should be between low and high limit:
-          oa.objective.DoseFunctionParameters.DoseLevel = 0.5 * (oa.dose_low + oa.dose_high)
 
 
 # Create optimization objects, minimum dvh, with robustness
@@ -275,7 +225,7 @@ def uniform_dose(ss, plan, roi_name, dose_level, weigth, beam_set_index=0):
     GUIF.handle_missing_roi_for_objective(roi_name)
 
 
-# Creates optimization objectives and objective adapation objects.
+# Creates optimization objectives and objective adaption objects.
 def setup_objectives(ss, plan, rois, beam_set_index, region_code):
   dose = 10000
   weight = 2
