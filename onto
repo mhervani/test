@@ -1,0 +1,342 @@
+<Ontology xmlns="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:base="http://www.semanticweb.org/gunnarre/ontologies/2017/10/airway.xml" ontologyIRI="http://www.semanticweb.org/gunnarre/ontologies/2017/10/airway.xml">
+<Prefix name="" IRI="http://www.semanticweb.org/gunnarre/ontologies/2017/10/airway.xml"/>
+<Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+<Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+<Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+<Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+<Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+<Declaration>
+<Class IRI="#beta-2-agonist"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="#ArneHansen"/>
+</Declaration>
+<Declaration>
+<Class IRI="#inhalasjonsMedisinering"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#brukes_i_behandling"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Undersøkelse"/>
+</Declaration>
+<Declaration>
+<DataProperty IRI="#alvorlighet_av_lungesykdom"/>
+</Declaration>
+<Declaration>
+<Class IRI="#inhalasjonssteroider"/>
+</Declaration>
+<Declaration>
+<Class IRI="#SaO2-verdi"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Oksygentilførsel"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="#KOLS"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Tidspunkt"/>
+</Declaration>
+<Declaration>
+<Class IRI="#glukokortikoider"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#har_symptom"/>
+</Declaration>
+<Declaration>
+<Class IRI="#pO2-verdi"/>
+</Declaration>
+<Declaration>
+<Class IRI="#peroralMedisinering"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Eksaserbasjon"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Spirometri"/>
+</Declaration>
+<Declaration>
+<Class IRI="#ResultatAvObservasjon"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="#Astma"/>
+</Declaration>
+<Declaration>
+<Class IRI="#antikolinergikum"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#utføres_når"/>
+</Declaration>
+<Declaration>
+<Class IRI="#ResultatAvUndersøkelse"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Sykdom"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#opptrer_i"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Medisinering"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#avhjelper_sykdom"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Obstruktiv_lungesykdom"/>
+</Declaration>
+<Declaration>
+<Class IRI="#FEV1"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#gir_resultat"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="#del_av"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Behandling"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Observasjon"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Medikament"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Intervensjon"/>
+</Declaration>
+<Declaration>
+<Class IRI="#SaO2-måling"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Lunge"/>
+</Declaration>
+<Declaration>
+<Class IRI="#MålingAvOksygenMetning"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Organ"/>
+</Declaration>
+<Declaration>
+<Class IRI="#Pasient"/>
+</Declaration>
+<Declaration>
+<Class IRI="#pO2-måling"/>
+</Declaration>
+<SubClassOf>
+<Class IRI="#Behandling"/>
+<Class IRI="#Intervensjon"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Eksaserbasjon"/>
+<Class IRI="#ResultatAvObservasjon"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#FEV1"/>
+<Class IRI="#ResultatAvUndersøkelse"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Lunge"/>
+<Class IRI="#Organ"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Medisinering"/>
+<Class IRI="#Behandling"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#MålingAvOksygenMetning"/>
+<Class IRI="#Undersøkelse"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Obstruktiv_lungesykdom"/>
+<Class IRI="#Sykdom"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Oksygentilførsel"/>
+<Class IRI="#Behandling"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#ResultatAvObservasjon"/>
+<Class IRI="#Observasjon"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#ResultatAvUndersøkelse"/>
+<Class IRI="#Observasjon"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#SaO2-måling"/>
+<Class IRI="#MålingAvOksygenMetning"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#SaO2-måling"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="#gir_resultat"/>
+<Class IRI="#SaO2-verdi"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#SaO2-verdi"/>
+<Class IRI="#ResultatAvUndersøkelse"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Spirometri"/>
+<Class IRI="#Undersøkelse"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Spirometri"/>
+<ObjectSomeValuesFrom>
+<ObjectProperty IRI="#gir_resultat"/>
+<Class IRI="#FEV1"/>
+</ObjectSomeValuesFrom>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Undersøkelse"/>
+<Class IRI="#Intervensjon"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#Undersøkelse"/>
+<ObjectSomeValuesFrom>
+<ObjectProperty IRI="#utføres_når"/>
+<Class IRI="#Tidspunkt"/>
+</ObjectSomeValuesFrom>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#antikolinergikum"/>
+<Class IRI="#Medikament"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#beta-2-agonist"/>
+<Class IRI="#Medikament"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#glukokortikoider"/>
+<Class IRI="#Medikament"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#inhalasjonsMedisinering"/>
+<Class IRI="#Medisinering"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#inhalasjonssteroider"/>
+<Class IRI="#Medikament"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#pO2-måling"/>
+<Class IRI="#MålingAvOksygenMetning"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#pO2-måling"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="#gir_resultat"/>
+<Class IRI="#pO2-verdi"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#pO2-verdi"/>
+<Class IRI="#ResultatAvUndersøkelse"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="#peroralMedisinering"/>
+<Class IRI="#Medisinering"/>
+</SubClassOf>
+<DisjointClasses>
+<Class IRI="#FEV1"/>
+<Class IRI="#SaO2-verdi"/>
+<Class IRI="#pO2-verdi"/>
+</DisjointClasses>
+<DisjointClasses>
+<Class IRI="#Intervensjon"/>
+<Class IRI="#Medikament"/>
+<Class IRI="#Observasjon"/>
+<Class IRI="#Organ"/>
+<Class IRI="#Pasient"/>
+<Class IRI="#Sykdom"/>
+<Class IRI="#Tidspunkt"/>
+</DisjointClasses>
+<DisjointClasses>
+<Class IRI="#Medisinering"/>
+<Class IRI="#Oksygentilførsel"/>
+</DisjointClasses>
+<DisjointClasses>
+<Class IRI="#inhalasjonsMedisinering"/>
+<Class IRI="#peroralMedisinering"/>
+</DisjointClasses>
+<ClassAssertion>
+<Class IRI="#Pasient"/>
+<NamedIndividual IRI="#ArneHansen"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="#Obstruktiv_lungesykdom"/>
+<NamedIndividual IRI="#Astma"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="#Obstruktiv_lungesykdom"/>
+<NamedIndividual IRI="#KOLS"/>
+</ClassAssertion>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="#opptrer_i"/>
+<ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="#utføres_når"/>
+<ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+</SubObjectPropertyOf>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="#avhjelper_sykdom"/>
+<Class IRI="#Intervensjon"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="#brukes_i_behandling"/>
+<Class IRI="#Medikament"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="#har_symptom"/>
+<Class IRI="#Sykdom"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="#opptrer_i"/>
+<Class IRI="#Sykdom"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="#utføres_når"/>
+<Class IRI="#Intervensjon"/>
+</ObjectPropertyDomain>
+<ObjectPropertyRange>
+<ObjectProperty IRI="#avhjelper_sykdom"/>
+<Class IRI="#Sykdom"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="#brukes_i_behandling"/>
+<Class IRI="#Medisinering"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="#har_symptom"/>
+<Class IRI="#Observasjon"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="#opptrer_i"/>
+<Class IRI="#Organ"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="#utføres_når"/>
+<Class IRI="#Tidspunkt"/>
+</ObjectPropertyRange>
+<DisjointObjectProperties>
+<ObjectProperty IRI="#avhjelper_sykdom"/>
+<ObjectProperty IRI="#brukes_i_behandling"/>
+<ObjectProperty IRI="#gir_resultat"/>
+<ObjectProperty IRI="#har_symptom"/>
+<ObjectProperty IRI="#opptrer_i"/>
+<ObjectProperty IRI="#utføres_når"/>
+</DisjointObjectProperties>
+<DataPropertyDomain>
+<DataProperty IRI="#alvorlighet_av_lungesykdom"/>
+<DataSomeValuesFrom>
+<DataProperty IRI="#alvorlighet_av_lungesykdom"/>
+<Datatype abbreviatedIRI="xsd:decimal"/>
+</DataSomeValuesFrom>
+</DataPropertyDomain>
+</Ontology>
+<!--  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi  -->
